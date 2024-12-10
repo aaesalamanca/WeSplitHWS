@@ -13,6 +13,8 @@ struct ContentView: View {
 
     @State private var numberOfPeopleIndex = 0
 
+    @State private var tipPercentage = 20
+
     var body: some View {
         NavigationStack {
             Form {
@@ -34,7 +36,14 @@ struct ContentView: View {
                 }
 
                 Section("How much tip dou you want to leave?") {
-
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(0..<101) {
+                            if $0.isMultiple(of: 5) {
+                                Text($0, format: .percent)
+                            }
+                        }
+                    }
+                    .pickerStyle(.wheel)
                 }
 
                 Section("Total amount") {
