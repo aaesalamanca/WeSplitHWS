@@ -9,13 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            Form {
+                Section("Check details") {
+
+                }
+
+                Section("How much tip dou you want to leave?") {
+
+                }
+
+                Section("Total amount") {
+
+                }
+
+                Section("Amount per person") {
+
+                }
+            }
+            .navigationTitle("WeSplitHWS")
         }
-        .padding()
     }
 }
 
