@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var checkAmount = 0.0
     @FocusState private var checkAmountIsFocused: Bool
 
+    @State private var numberOfPeopleIndex = 0
+
     var body: some View {
         NavigationStack {
             Form {
@@ -22,6 +24,13 @@ struct ContentView: View {
                     )
                     .focused($checkAmountIsFocused)
                     .keyboardType(.decimalPad)
+                    Picker("Number of people", selection: $numberOfPeopleIndex)
+                    {
+                        ForEach(2..<16) {
+                            Text("\($0) people")
+                        }
+                    }
+                    .pickerStyle(.navigationLink)
                 }
 
                 Section("How much tip dou you want to leave?") {
