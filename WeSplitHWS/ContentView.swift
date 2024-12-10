@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var checkAmount = 0.0
+    @FocusState private var checkAmountIsFocused: Bool
+
     var body: some View {
         NavigationStack {
             Form {
                 Section("Check details") {
-
+                    TextField(
+                        "Check amount", value: $checkAmount,
+                        format: .currency(
+                            code: Locale.current.currency?.identifier ?? "USD")
+                    )
+                    .focused($checkAmountIsFocused)
+                    .keyboardType(.decimalPad)
                 }
 
                 Section("How much tip dou you want to leave?") {
@@ -28,6 +37,13 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("WeSplitHWS")
+            .toolbar {
+                if checkAmountIsFocused {
+                    Button("Done") {
+                        checkAmountIsFocused.toggle()
+                    }
+                }
+            }
         }
     }
 }
