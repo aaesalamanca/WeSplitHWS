@@ -19,6 +19,10 @@ struct ContentView: View {
         checkAmount + checkAmount * Double(tipPercentage) / 100
     }
 
+    private var amountPerPerson: Double {
+        totalAmount / Double(numberOfPeopleIndex + 2)
+    }
+
     var body: some View {
         NavigationStack {
             Form {
@@ -58,7 +62,10 @@ struct ContentView: View {
                 }
 
                 Section("Amount per person") {
-
+                    Text(
+                        amountPerPerson,
+                        format: .currency(
+                            code: Locale.current.currency?.identifier ?? "USD"))
                 }
             }
             .navigationTitle("WeSplitHWS")
