@@ -15,6 +15,10 @@ struct ContentView: View {
 
     @State private var tipPercentage = 20
 
+    private var totalAmount: Double {
+        checkAmount + checkAmount * Double(tipPercentage) / 100
+    }
+
     var body: some View {
         NavigationStack {
             Form {
@@ -47,7 +51,10 @@ struct ContentView: View {
                 }
 
                 Section("Total amount") {
-
+                    Text(
+                        totalAmount,
+                        format: .currency(
+                            code: Locale.current.currency?.identifier ?? "USD"))
                 }
 
                 Section("Amount per person") {
