@@ -7,3 +7,5 @@ La aplicación del repositorio se basa en el tutorial de [Paul Hudson](https://x
 - [Day 18 – Project 1, part three](https://www.hackingwithswift.com/100/swiftui/18)
 
 ![Mockup de la aplicación para dividir la cuenta entre varias personas](./Mockup.webp)
+
+**WeSplitHWS** permite introducir una cantidad de dinero, seleccionar el número de personas entre las que se dividirá dicha cantidad y el porcentaje de propina. Posteriormente, aplicando el porcentaje elegido, calcula la cantidad total y la cantidada por persona.
